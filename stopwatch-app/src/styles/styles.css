@@ -1,0 +1,196 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #e0eafc, #cfdef3);
+  --container-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #1a1a1a;
+  --primary-color: #4a90e2;
+  --primary-dark: #357ab8;
+  --disabled-color: #b0c4de;
+  --lap-bg: #f1f6fb;
+  --lap-border: #4a90e2;
+  --toggle-bg: #555;
+  --toggle-color: #fff;
+  --toggle-hover-bg: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-gradient);
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  transition: background 0.5s ease;
+}
+
+.app-container {
+  max-width: 420px;
+  margin: auto;
+  background: var(--container-bg);
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: var(--text-color);
+}
+
+/* Dark mode toggle button */
+.toggle-darkmode-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--toggle-bg);
+  color: var(--toggle-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-darkmode-btn:hover {
+  background-color: var(--toggle-hover-bg);
+  transform: scale(1.03);
+}
+
+/* Tick Animation */
+.time-display {
+  font-size: 52px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--text-color);
+  animation: tick-fade 0.1s ease-in-out;
+}
+
+@keyframes tick-fade {
+  0% { opacity: 0.6; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.controls button:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.controls button:hover:not(:disabled),
+.controls button:focus:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.lap-list {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.lap-list h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: var(--text-color);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.lap-list ul {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.lap-list li {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background-color: var(--lap-bg);
+  border-left: 4px solid var(--lap-border);
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+/* 🌙 Dark Mode Overrides */
+body.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #1e1e2f, #2d2d44);
+  --container-bg: rgba(40, 40, 60, 0.9);
+  --text-color: #e0e0e0;
+  --primary-color: #7ab6f8;
+  --primary-dark: #4f91cf;
+  --disabled-color: #555a72;
+  --lap-bg: #333950;
+  --lap-border: #7ab6f8;
+  --toggle-bg: #bbb;
+  --toggle-color: #222;
+  --toggle-hover-bg: #ddd;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 480px) {
+  .time-display {
+    font-size: 40px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .controls button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .lap-list li {
+    font-size: 14px;
+  }
+  
+}
+
+.heading-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.toggle-darkmode-emoji {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.toggle-darkmode-emoji:hover {
+  transform: scale(1.2);
+}
+
+.lap-list p {
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 8px 0;
+}
